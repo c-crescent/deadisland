@@ -1,0 +1,6 @@
+<div class="main" *ngIf="!started">
+  <button class="button is-large is-primary" (click)="started = !started">
+    Start
+  </button>
+</div>
+<app-main *ngIf="started"></app-main>
