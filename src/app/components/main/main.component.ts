@@ -21,7 +21,6 @@ export class MainComponent implements OnInit {
   }
 
   getResources() {
-    console.log(this);
     this.gameService.getResources().subscribe((resources) => {
       this.resources = resources;
     });

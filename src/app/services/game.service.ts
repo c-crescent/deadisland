@@ -26,9 +26,13 @@ export class GameService {
     hunger: 100,
     thirst: 100,
     energy: 100,
+    temporaryEnergy: 0,
   };
 
-  turn: number = 0;
+  time = {
+    day: 0,
+    hour: 0,
+  };
 
   addResource(resource: string) {
     this.resources[resource] += this.skillRate[resource];
