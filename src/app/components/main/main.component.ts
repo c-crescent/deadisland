@@ -8,16 +8,13 @@ import { GameService } from '../../services/game.service';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  
   resources: Resources = {
     wood: 0,
     water: 0,
     food: 0,
   };
 
-  constructor(
-    private gameService: GameService
-  ) {}
+  constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
     this.getResources();
@@ -30,7 +27,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  addWood() {
-    this.gameService.addWood(2);
+  addResource(resource: string) {
+    this.gameService.addResource(resource);
   }
 }

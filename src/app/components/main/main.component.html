@@ -1,1 +1,6 @@
-wood: {{ resources.wood }}
+wood: {{ resources.wood }} water: {{ resources.water }} food:
+{{ resources.food }}
+
+<button (click)="addResource('wood')">add wood</button>
+<button (click)="addResource('water')">add water</button>
+<button (click)="addResource('food')">add food</button>

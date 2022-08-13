@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Resources } from '../models/resources';
+import { skillLevel } from '../models/skills';
 
 @Injectable()
 export class GameService {
@@ -12,8 +13,25 @@ export class GameService {
     food: 0,
   };
 
-  addWood(amount: number) {
-    this.resources.wood += amount;
+  skillRate: Resources = {
+    wood: 2,
+    water: 1,
+    food: 3,
+  };
+
+  skills: skillLevel;
+
+  sustenance = {
+    hp: 100,
+    hunger: 100,
+    thirst: 100,
+    energy: 100,
+  };
+
+  turn: number = 0;
+
+  addResource(resource: string) {
+    this.resources[resource] += this.skillRate[resource];
   }
 
   getResources(): Observable<Resources> {

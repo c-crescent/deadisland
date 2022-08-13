@@ -3,3 +3,5 @@ export interface Resources {
   water: number;
   food: number;
 }
+
+export int
