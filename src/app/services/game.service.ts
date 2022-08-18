@@ -41,4 +41,8 @@ export class GameService {
   getResources(): Observable<Resources> {
     return of(this.resources);
   }
+
+  loadGame() {
+    localStorage.getItem('FISave');
+  }
 }

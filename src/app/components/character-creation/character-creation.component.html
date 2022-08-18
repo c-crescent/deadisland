@@ -1,0 +1,69 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Farm:</label>
+    <input type="text" id="farm" name="farm" formControlName="farm" />
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" formControlName="name" />
+  </div>
+
+  <label for="gender">Pronouns</label>
+  <div>
+    <input
+      id="male"
+      type="radio"
+      class="custom-control-input"
+      value="male"
+      name="gender"
+      formControlName="gender"
+    />
+    <label for="male">He / him</label>
+  </div>
+  <div>
+    <input
+      id="female"
+      type="radio"
+      class="custom-control-input"
+      value="female"
+      name="gender"
+      formControlName="gender"
+    />
+    <label for="female">She / her</label>
+  </div>
+  <div>
+    <input
+      id="nb"
+      type="radio"
+      class="custom-control-input"
+      value="nb"
+      name="gender"
+      formControlName="gender"
+    />
+    <label for="nb">They / them</label>
+  </div>
+  <div>
+    <label>Birthday</label>
+    <div>
+      <label for="birthMonth">Season</label>
+      <select formControlName="season">
+        <option value="" disabled>Choose Season</option>
+        <option *ngFor="let season of seasons" [ngValue]="season.value">
+          {{ season.text }}
+        </option>
+      </select>
+    </div>
+    <label for="birthDate">Day</label>
+    <input
+      type="number"
+      id="birthDate"
+      name="birthDate"
+      formControlName="birthDate"
+      min="1"
+      max="28"
+      (paste)="(false)"
+      (keypress)="keyPressNumbers($event)"
+    />
+  </div>
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
